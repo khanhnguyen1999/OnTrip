@@ -40,5 +40,5 @@ export const config = {
     path: 'uploads',
     cdn: process.env.CDN_URL || `http://localhost:${port}/uploads`
   },
-  dbURL: `mysql://root:totrip_secret@localhost:3306/social_network?connection_limit=100`
+  dbURL: `mysql://root:totrip_secret@localhost:3306/totrip_network?connection_limit=100`
 };

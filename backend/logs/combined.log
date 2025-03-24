@@ -18,3 +18,12 @@ Please make sure your database server is running at `localhost:3306`.
 24-Mar-2025 14:50:08.689	error: Failed to start server: Can't reach database server at `localhost:3306`
 
 Please make sure your database server is running at `localhost:3306`.
+24-Mar-2025 15:00:26.419	info: Starting server in development mode...
+24-Mar-2025 15:00:26.450	error: 
+24-Mar-2025 15:00:26.458	error: Failed to start server: Can't reach database server at `localhost:3306`
+
+Please make sure your database server is running at `localhost:3306`.
+24-Mar-2025 16:03:43.421	info: Starting server in development mode...
+24-Mar-2025 16:03:43.450	success: Connected to redis server
+24-Mar-2025 16:03:43.476	success: Prisma connected to database
+24-Mar-2025 16:03:43.479	success: Server is running on port 3000

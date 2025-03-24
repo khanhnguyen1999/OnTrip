@@ -3,7 +3,7 @@
 --
 -- https://tableplus.com/
 --
--- Database: social_network
+-- Database: totrip_network
 -- Generation Time: 2024-11-09 14:27:45.4140
 -- -------------------------------------------------------------
 
