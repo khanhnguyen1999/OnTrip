@@ -1,18 +1,24 @@
-import express, { Application } from "express";
-import cors from "cors";
-import morgan from "morgan";
-import dotenv from "dotenv";
-import authRoutes from "./routes/auth.routes";
+import 'compression';
+import cors from 'cors';
+import express, { Application, json, NextFunction, Request, Response, urlencoded } from 'express';
+import helmet from 'helmet';
 
-dotenv.config();
+function buildApp(): Application {
+  const app: Application = express();
 
-const app: Application = express();
+  app.use(urlencoded({ extended: true }));
+  app.use(json());
+  app.use(helmet());
+  app.use(cors({ origin: '*' }));
+  app.set('trust proxy', 1);
 
-app.use(express.json());
-app.use(cors());
-app.use(morgan("dev"));
+  app.use('/ping', (_: Request, res: Response, next: NextFunction) => {
+    res.status(200).json({
+      message: 'pong'
+    });
+  });
 
-// Routes
-app.use("/api/auth", authRoutes);
+  return app;
+}
 
-export default app;
+export default buildApp();
