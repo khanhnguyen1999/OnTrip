@@ -15,7 +15,7 @@ class JwtTokenService implements ITokenProvider {
 
   async generateToken(payload: TokenPayload): Promise<string> {
     // const payload = { userId };
-    return jwt.sign(payload, this.secretKey, { expiresIn: this.expiresIn });
+    return jwt.sign(payload, this.secretKey, { expiresIn: '365d'});
   }
 
   async verifyToken(token: string): Promise<TokenPayload | null> {

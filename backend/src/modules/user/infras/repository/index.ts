@@ -100,7 +100,7 @@ export class PrismaUserQueryRepository implements IQueryRepository<User, UserCon
     });
 
     return {
-      data: items.map((item: User) => ({ ...item, role: item.role as UserRole }) as User),
+      data: items.map((item: any) => ({ ...item, role: item.role as UserRole }) as User),
       paging,
       total
     }
@@ -108,6 +108,6 @@ export class PrismaUserQueryRepository implements IQueryRepository<User, UserCon
 
   async listByIds(ids: string[]): Promise<User[]> {
     const data = await prisma.users.findMany({ where: { id: { in: ids } } });
-    return data.map((item: User) => ({ ...item, role: item.role as UserRole }) as User);
+    return data.map((item: any) => ({ ...item, role: item.role as UserRole }) as User);
   }
 }

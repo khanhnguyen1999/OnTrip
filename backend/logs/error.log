@@ -1,0 +1,17 @@
+24-Mar-2025 14:48:45.217	error: 
+24-Mar-2025 14:48:45.219	error: Failed to start server: [1;91merror[0m: [1mEnvironment variable not found: DATABASE_URL.[0m
+  [1;94m-->[0m  [4mschema.prisma:7[0m
+[1;94m   | [0m
+[1;94m 6 | [0m  provider = "mysql"
+[1;94m 7 | [0m  url      = [1;91menv("DATABASE_URL")[0m
+[1;94m   | [0m
+
+Validation Error Count: 1
+24-Mar-2025 14:49:35.366	error: 
+24-Mar-2025 14:49:35.371	error: Failed to start server: Can't reach database server at `localhost:3306`
+
+Please make sure your database server is running at `localhost:3306`.
+24-Mar-2025 14:50:08.682	error: 
+24-Mar-2025 14:50:08.689	error: Failed to start server: Can't reach database server at `localhost:3306`
+
+Please make sure your database server is running at `localhost:3306`.

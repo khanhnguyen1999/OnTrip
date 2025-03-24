@@ -9,7 +9,7 @@ services:
     ports:
       - "3306:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=200lab_secret
+      - MYSQL_ROOT_PASSWORD=totrip_secret
       - MYSQL_DATABASE=social_network
     volumes:
       - social_mysql:/var/lib/mysql
@@ -28,7 +28,7 @@ services:
     volumes:
       - redis-bento:/data
     environment:
-      - REDIS_PASSWORD=200lab_redis
+      - REDIS_PASSWORD=totrip_redis
     networks:
       - social
     command: /bin/sh -c 'redis-server --appendonly yes --requirepass $$REDIS_PASSWORD'
