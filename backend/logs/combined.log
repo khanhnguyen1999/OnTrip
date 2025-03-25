@@ -59,3 +59,18 @@ Please make sure your database server is running at `localhost:3306`.
 25-Mar-2025 15:54:24.375	success: Connected to redis server
 25-Mar-2025 15:54:24.382	success: Prisma connected to database
 25-Mar-2025 15:54:24.387	success: Server is running on port 3000
+25-Mar-2025 21:35:58.640	info: Starting server in development mode...
+25-Mar-2025 21:35:58.670	success: Connected to redis server
+25-Mar-2025 21:35:58.678	success: Prisma connected to database
+25-Mar-2025 21:36:13.184	info: Starting server in development mode...
+25-Mar-2025 21:36:13.199	success: Connected to redis server
+25-Mar-2025 21:36:13.203	success: Prisma connected to database
+25-Mar-2025 21:36:13.206	success: Server is running on port 3000
+25-Mar-2025 21:44:59.413	info: Starting server in development mode...
+25-Mar-2025 21:44:59.441	success: Connected to redis server
+25-Mar-2025 21:44:59.453	success: Prisma connected to database
+25-Mar-2025 21:44:59.456	success: Server is running on port 3000
+25-Mar-2025 22:52:09.554	info: Starting server in development mode...
+25-Mar-2025 22:52:09.579	success: Connected to redis server
+25-Mar-2025 22:52:09.586	success: Prisma connected to database
+25-Mar-2025 22:52:09.588	success: Server is running on port 3000
