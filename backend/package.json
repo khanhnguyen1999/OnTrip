@@ -6,7 +6,10 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/index.js",
-    "dev": "dotenv -e .env.development -- nodemon"
+    "dev": "dotenv -e .env.development -- nodemon",
+    "prisma:generate": "prisma generate",
+    "migration:create": "prisma migrate dev --create-only",
+    "migrate": "prisma migrate deploy"
   },
   "keywords": [],
   "author": "",
@@ -43,6 +46,7 @@
     "node": ">=20.0.0",
     "pnpm": ">=9.0.0"
   },
+  "packageManager": "pnpm@9.12.1+sha512.e5a7e52a4183a02d5931057f7a0dbff9d5e9ce3161e33fa68ae392125b79282a8a8a470a51dfc8a0ed86221442eb2fb57019b0990ed24fab519bf0e1bc5ccfc4",
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",
@@ -55,7 +59,7 @@
     "dotenv-cli": "^7.4.2",
     "nodemon": "^3.1.7",
     "prettier": "^3.3.3",
-    "prisma": "^5.21.1",
+    "prisma": "^6.5.0",
     "redis-mock": "^0.56.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"

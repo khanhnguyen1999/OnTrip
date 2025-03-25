@@ -16,8 +16,9 @@ import type { NativeStackNavigationProp } from "@react-navigation/native-stack"
 
 const RegisterScreen = () => {
   const [username, setUsername] = useState('');
-  const [mobileNumber, setMobileNumber] = useState('');
   const [password, setPassword] = useState('');
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const navigation = useNavigation<NativeStackNavigationProp<any>>()
@@ -62,7 +63,7 @@ const RegisterScreen = () => {
           <Feather name="user" size={20} color="#8E8E93" style={styles.inputIcon} />
           <TextInput
             style={styles.input}
-            placeholder="Username"
+            placeholder="Username..."
             value={username}
             onChangeText={setUsername}
           />
@@ -70,13 +71,22 @@ const RegisterScreen = () => {
 
         {/* Mobile Number Input */}
         <View style={styles.inputContainer}>
-          <Feather name="phone" size={20} color="#8E8E93" style={styles.inputIcon} />
+          <Feather name="user" size={20} color="#8E8E93" style={styles.inputIcon} />
           <TextInput
             style={styles.input}
-            placeholder="Mobile Number"
-            value={mobileNumber}
-            onChangeText={setMobileNumber}
-            keyboardType="phone-pad"
+            placeholder="Firstname..."
+            value={firstname}
+            onChangeText={setFirstname}
+          />
+        </View>
+
+        <View style={styles.inputContainer}>
+          <Feather name="user" size={20} color="#8E8E93" style={styles.inputIcon} />
+          <TextInput
+            style={styles.input}
+            placeholder="Lastname..."
+            value={lastname}
+            onChangeText={setLastname}
           />
         </View>
 
@@ -85,7 +95,7 @@ const RegisterScreen = () => {
           <Feather name="lock" size={20} color="#8E8E93" style={styles.inputIcon} />
           <TextInput
             style={styles.input}
-            placeholder="••••••••••"
+            placeholder="Password..."
             value={password}
             onChangeText={setPassword}
             secureTextEntry={!showPassword}
