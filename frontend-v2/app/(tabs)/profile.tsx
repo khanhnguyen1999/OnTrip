@@ -24,23 +24,26 @@ export default function ProfileScreen() {
   const { logout, isLoading } = useAuthStore();
   
   const handleLogout = async () => {
-    Alert.alert(
-      "Logout",
-      "Are you sure you want to logout?",
-      [
-        {
-          text: "Cancel",
-          style: "cancel",
-        },
-        {
-          text: "Logout",
-          onPress: async () => {
-            await logout();
-            // In a real app, this would navigate to login screen
-          },
-        },
-      ]
-    );
+    router.push('/auth/login')
+
+    // Alert.alert(
+    //   "Logout",
+    //   "Are you sure you want to logout?",
+    //   [
+    //     {
+    //       text: "Cancel",
+    //       style: "cancel",
+    //     },
+    //     {
+    //       text: "Logout",
+    //       onPress: async () => {
+    //         await logout();
+    //         router.push('/auth/login')
+    //         // In a real app, this would navigate to login screen
+    //       },
+    //     },
+    //   ]
+    // );
   };
   
   const menuItems = [

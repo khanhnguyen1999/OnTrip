@@ -4,7 +4,10 @@ export interface User {
     email: string;
     avatar?: string;
     phone?: string;
-    preferredCurrency: string;
+    friends?: [],
+    groups?: [],
+    createdAt?: string,
+    preferredCurrency?: string;
   }
   
   export interface Group {
