@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { colors } from "@/constants/colors";
@@ -21,10 +21,10 @@ import { currentUser } from "@/mocks/users";
 
 export default function ProfileScreen() {
   const router = useRouter();
-  const { logout, isLoading } = useAuthStore();
+  const { profile, user, isLoadingUser } = useAuthStore();
   
   const handleLogout = async () => {
-    router.push('/auth/login')
+    router.push('/(auth)/login')
 
     // Alert.alert(
     //   "Logout",
@@ -73,7 +73,17 @@ export default function ProfileScreen() {
       onPress: () => router.push("/help"),
     },
   ];
-  
+
+  useEffect(()=>{
+    (async()=>{
+      try {
+        const response = await profile();
+      } catch (error) {
+        // Error is handled by the store
+      }
+    })()
+  },[])
+
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -86,8 +96,8 @@ export default function ProfileScreen() {
               showBorder
             />
             <View style={styles.nameContainer}>
-              <Text style={styles.name}>{currentUser.name}</Text>
-              <Text style={styles.email}>{currentUser.email}</Text>
+              <Text style={styles.name}>{user?.firstName} {user?.lastName}</Text>
+              <Text style={styles.email}>{user?.username}</Text>
             </View>
           </View>
           
@@ -132,7 +142,7 @@ export default function ProfileScreen() {
           icon={<LogOut size={18} color={colors.danger} />}
           style={styles.logoutButton}
           textStyle={styles.logoutButtonText}
-          loading={isLoading}
+          loading={isLoadingUser}
         />
       </ScrollView>
     </SafeAreaView>

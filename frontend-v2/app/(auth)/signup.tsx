@@ -19,22 +19,26 @@ import { User, Mail, Lock, ArrowLeft } from "lucide-react-native";
 
 export default function SignupScreen() {
   const router = useRouter();
-  const { signup, isLoading, error } = useAuthStore();
+  const { register, isLoadingUser, registerError} = useAuthStore();
   const { colors } = useSettingsStore();
   
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   
   const handleSignup = async () => {
-    if (!name.trim()) {
-      Alert.alert("Error", "Please enter your name");
+    if (!username.trim()) {
+      Alert.alert("Error", "Please enter a username");
       return;
     }
-    
-    if (!email.trim()) {
-      Alert.alert("Error", "Please enter your email");
+    if (!firstName.trim()) {
+      Alert.alert("Error", "Please enter your first name");
+      return;
+    }
+    if (!lastName.trim()) {
+      Alert.alert("Error", "Please enter your last name");
       return;
     }
     
@@ -49,10 +53,10 @@ export default function SignupScreen() {
     }
     
     try {
-      await signup(name, email, password);
+      await register({username, firstName, lastName, password});
       // Use setTimeout to ensure navigation happens after component is mounted
       setTimeout(() => {
-        router.replace("/");
+        router.replace("/(auth)/login");
       }, 0);
     } catch (error) {
       // Error is handled by the store
@@ -82,21 +86,27 @@ export default function SignupScreen() {
           
           <View style={styles.form}>
             <Input
-              label="Full Name"
-              placeholder="Enter your full name"
-              value={name}
-              onChangeText={setName}
+              label="User Name"
+              placeholder="Enter your username"
+              value={username}
+              onChangeText={setUsername}
               leftIcon={<User size={20} color={colors.textSecondary} />}
             />
             
             <Input
-              label="Email"
-              placeholder="Enter your email"
-              value={email}
-              onChangeText={setEmail}
-              keyboardType="email-address"
-              autoCapitalize="none"
-              leftIcon={<Mail size={20} color={colors.textSecondary} />}
+              label="First Name"
+              placeholder="Enter your first name"
+              value={firstName}
+              onChangeText={setFirstName}
+              leftIcon={<User size={20} color={colors.textSecondary} />}
+            />
+
+            <Input
+              label="Last Name"
+              placeholder="Enter your last name"
+              value={lastName}
+              onChangeText={setLastName}
+              leftIcon={<User size={20} color={colors.textSecondary} />}
             />
             
             <Input
@@ -117,14 +127,14 @@ export default function SignupScreen() {
               leftIcon={<Lock size={20} color={colors.textSecondary} />}
             />
             
-            {error && (
-              <Text style={[styles.errorText, { color: colors.error }]}>{error}</Text>
+            {registerError && (
+              <Text style={[styles.errorText, { color: colors.error }]}>{registerError.message}</Text>
             )}
             
             <Button
               title="Sign Up"
               onPress={handleSignup}
-              loading={isLoading}
+              loading={isLoadingUser}
               style={styles.signupButton}
               size="large"
             />
@@ -132,7 +142,7 @@ export default function SignupScreen() {
           
           <View style={styles.footer}>
             <Text style={[styles.footerText, { color: colors.textSecondary }]}>Already have an account?</Text>
-            <TouchableOpacity onPress={() => router.push("/auth/login")}>
+            <TouchableOpacity onPress={() => router.push("/(auth)/login")}>
               <Text style={[styles.loginText, { color: colors.primary }]}>Sign In</Text>
             </TouchableOpacity>
           </View>

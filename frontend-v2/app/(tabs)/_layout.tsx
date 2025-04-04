@@ -90,7 +90,7 @@ export default function TabLayout() {
 
 const styles = StyleSheet.create({
   tabBar: {
-    height: 60,
+    height: 70,
     paddingBottom: 8,
     paddingTop: 8,
     backgroundColor: colors.white,
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 24,
+    marginBottom: 55,
     shadowColor: colors.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,

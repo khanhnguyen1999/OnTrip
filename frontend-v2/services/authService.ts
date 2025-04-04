@@ -1,101 +1,75 @@
-import api from "./api";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { mockUsers, currentUser } from "@/mocks/users";
+import apiClient from './axiosConfig';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// Mock delay to simulate network request
-const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+export interface LoginCredentials {
+  username: string;
+  password: string;
+}
+
+export interface RegisterData {
+  username: string;
+  firstName: string;
+  lastName: string;
+  password: string;
+}
+
+export interface AuthResponse {
+  user: {
+    id: string;
+    email: string;
+    name: string;
+    username: string;
+    firstName: string;
+    lastName: string;
+  };
+  token: string;
+  refreshToken: string;
+}
 
 export const authService = {
-  login: async (email: string, password: string) => {
-    // Simulate API call
-    await delay(1000);
-    
-    // Check if user exists in mock data
-    const user = mockUsers.find(u => u.email === email);
-    
-    if (!user) {
-      throw new Error("Invalid email or password");
-    }
-    
-    // Mock successful login
-    const mockResponse = {
-      user,
-      token: "mock-auth-token-12345",
-      refreshToken: "mock-refresh-token-12345",
-    };
+  login: async (credentials: LoginCredentials) => {
+    const response = await apiClient.post<string>('/v1/authenticate', credentials);
     
     // Store tokens
-    await AsyncStorage.setItem("auth_token", mockResponse.token);
-    await AsyncStorage.setItem("refresh_token", mockResponse.refreshToken);
+    await AsyncStorage.setItem('auth_token', response.data);
+    // await AsyncStorage.setItem('refresh_token', response.data.refreshToken);
     
-    return mockResponse;
+    return response.data;
   },
   
-  register: async (name: string, email: string, password: string) => {
-    // Simulate API call
-    await delay(1000);
+  register: async (data: RegisterData) => {
+    const response = await apiClient.post<AuthResponse>('/v1/register', data);
     
-    // Check if email already exists
-    if (mockUsers.some(u => u.email === email)) {
-      throw new Error("Email already in use");
-    }
+    // Store tokens if registration automatically logs in the user
+    await AsyncStorage.setItem('auth_token', response.data.token);
+    await AsyncStorage.setItem('refresh_token', response.data.refreshToken);
     
-    // Mock successful registration
-    const newUser = {
-      id: `user${mockUsers.length + 1}`,
-      name,
-      email,
-      preferredCurrency: "USD",
-    };
-    
-    const mockResponse = {
-      user: newUser,
-      token: "mock-auth-token-new-user",
-      refreshToken: "mock-refresh-token-new-user",
-    };
-    
-    // Store tokens
-    await AsyncStorage.setItem("auth_token", mockResponse.token);
-    await AsyncStorage.setItem("refresh_token", mockResponse.refreshToken);
-    
-    return mockResponse;
+    return response.data;
   },
   
   logout: async () => {
-    // Simulate API call
-    await delay(500);
-    
-    // Clear tokens
-    await AsyncStorage.removeItem("auth_token");
-    await AsyncStorage.removeItem("refresh_token");
-    
-    return { success: true };
+    try {
+      await apiClient.post('/auth/logout');
+    } catch (error) {
+      console.error('Logout error:', error);
+    } finally {
+      // Clear tokens regardless of API success
+      await AsyncStorage.removeItem('auth_token');
+      await AsyncStorage.removeItem('refresh_token');
+    }
+  },
+
+  profile: async () => {
+    try {
+      const response = await apiClient.get('/v1/profile');
+      return response.data;
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
   },
   
   getCurrentUser: async () => {
-    // Simulate API call
-    await delay(500);
-    
-    // Return mock current user
-    return currentUser;
-  },
-  
-  updateProfile: async (userData: Partial<typeof currentUser>) => {
-    // Simulate API call
-    await delay(1000);
-    
-    // Return updated user data
-    return {
-      ...currentUser,
-      ...userData,
-    };
-  },
-  
-  changePassword: async (currentPassword: string, newPassword: string) => {
-    // Simulate API call
-    await delay(1000);
-    
-    // Mock password change
-    return { success: true };
-  },
+    const response = await apiClient.get<AuthResponse['user']>('/auth/me');
+    return response.data;
+  }
 };

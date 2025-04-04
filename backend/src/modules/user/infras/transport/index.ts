@@ -17,8 +17,8 @@ export class UserHTTPService extends BaseHttpService<User, UserRegistrationDTO, 
   }
 
   async loginAPI(req: Request, res: Response) {
-    const token = await this.usecase.login(req.body);
-    res.status(200).json({ data: token });
+    const response = await this.usecase.login(req.body);
+    res.status(200).json(response);
   }
 
   async profileAPI(req: Request, res: Response) {

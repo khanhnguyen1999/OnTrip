@@ -20,15 +20,15 @@ import { Mail, Lock } from "lucide-react-native";
 
 export default function LoginScreen() {
   const router = useRouter();
-  const { login, isLoading, error } = useAuthStore();
+  const { login, isLoadingUser, loginError } = useAuthStore();
   const { colors } = useSettingsStore();
   
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   
   const handleLogin = async () => {
-    if (!email.trim()) {
-      Alert.alert("Error", "Please enter your email");
+    if (!username.trim()) {
+      Alert.alert("Error", "Please enter your username");
       return;
     }
     
@@ -38,11 +38,8 @@ export default function LoginScreen() {
     }
     
     try {
-      await login(email, password);
-      // Use setTimeout to ensure navigation happens after component is mounted
-      setTimeout(() => {
-        router.replace("/");
-      }, 0);
+      await login({username, password});
+      router.push("/(tabs)/profile");
     } catch (error) {
       // Error is handled by the store
     }
@@ -71,10 +68,10 @@ export default function LoginScreen() {
           
           <View style={styles.form}>
             <Input
-              label="Email"
-              placeholder="Enter your email"
-              value={email}
-              onChangeText={setEmail}
+              label="Username"
+              placeholder="Enter your username"
+              value={username}
+              onChangeText={setUsername}
               keyboardType="email-address"
               autoCapitalize="none"
               leftIcon={<Mail size={20} color={colors.textSecondary} />}
@@ -89,8 +86,8 @@ export default function LoginScreen() {
               leftIcon={<Lock size={20} color={colors.textSecondary} />}
             />
             
-            {error && (
-              <Text style={[styles.errorText, { color: colors.error }]}>{error}</Text>
+            {loginError && (
+              <Text style={[styles.errorText, { color: colors.error }]}>{loginError.message}</Text>
             )}
             
             <TouchableOpacity 
@@ -103,7 +100,7 @@ export default function LoginScreen() {
             <Button
               title="Sign In"
               onPress={handleLogin}
-              loading={isLoading}
+              loading={isLoadingUser}
               style={styles.loginButton}
               size="large"
             />
@@ -111,15 +108,9 @@ export default function LoginScreen() {
           
           <View style={styles.footer}>
             <Text style={[styles.footerText, { color: colors.textSecondary }]}>Don't have an account?</Text>
-            <TouchableOpacity onPress={() => router.push("/auth/signup")}>
+            <TouchableOpacity onPress={() => router.push("/(auth)/signup")}>
               <Text style={[styles.signupText, { color: colors.primary }]}>Sign Up</Text>
             </TouchableOpacity>
-          </View>
-          
-          <View style={[styles.demoContainer, { backgroundColor: colors.primaryLight }]}>
-            <Text style={[styles.demoTitle, { color: colors.primary }]}>Demo Credentials</Text>
-            <Text style={[styles.demoText, { color: colors.text }]}>Email: you@example.com</Text>
-            <Text style={[styles.demoText, { color: colors.text }]}>Password: (any password will work)</Text>
           </View>
         </ScrollView>
       </SafeAreaView>

@@ -6,3 +6,5 @@ logs/
 dist/
 
 .env
+
+yarn.lock
