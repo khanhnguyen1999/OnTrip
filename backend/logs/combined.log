@@ -134,3 +134,103 @@ Please make sure your database server is running at `localhost:3306`.
 04-Apr-2025 14:42:11.920	success: Connected to redis server
 04-Apr-2025 14:42:11.924	success: Prisma connected to database
 04-Apr-2025 14:42:11.926	success: Server is running on port 3000
+04-Apr-2025 16:38:26.845	info: Starting server in development mode...
+04-Apr-2025 16:38:26.870	success: Connected to redis server
+04-Apr-2025 16:38:26.876	success: Prisma connected to database
+04-Apr-2025 16:38:26.878	success: Server is running on port 3000
+04-Apr-2025 16:40:25.554	info: Starting server in development mode...
+04-Apr-2025 16:40:25.568	success: Connected to redis server
+04-Apr-2025 16:40:25.573	success: Prisma connected to database
+04-Apr-2025 16:40:25.575	success: Server is running on port 3000
+04-Apr-2025 16:40:35.826	info: Starting server in development mode...
+04-Apr-2025 16:40:35.845	success: Connected to redis server
+04-Apr-2025 16:40:35.852	success: Prisma connected to database
+04-Apr-2025 16:40:35.855	success: Server is running on port 3000
+04-Apr-2025 16:41:59.844	info: Starting server in development mode...
+04-Apr-2025 16:41:59.860	success: Connected to redis server
+04-Apr-2025 16:41:59.865	success: Prisma connected to database
+04-Apr-2025 16:41:59.867	success: Server is running on port 3000
+04-Apr-2025 16:42:06.401	info: Starting server in development mode...
+04-Apr-2025 16:42:06.415	success: Connected to redis server
+04-Apr-2025 16:42:06.419	success: Prisma connected to database
+04-Apr-2025 16:42:06.421	success: Server is running on port 3000
+04-Apr-2025 16:42:12.337	info: Starting server in development mode...
+04-Apr-2025 16:42:12.353	success: Connected to redis server
+04-Apr-2025 16:42:12.357	success: Prisma connected to database
+04-Apr-2025 16:42:12.359	success: Server is running on port 3000
+04-Apr-2025 16:42:28.719	info: Starting server in development mode...
+04-Apr-2025 16:42:28.734	success: Connected to redis server
+04-Apr-2025 16:42:28.737	success: Prisma connected to database
+04-Apr-2025 16:42:28.740	success: Server is running on port 3000
+04-Apr-2025 16:43:08.993	info: Starting server in development mode...
+04-Apr-2025 16:43:09.014	success: Connected to redis server
+04-Apr-2025 16:43:09.024	success: Prisma connected to database
+04-Apr-2025 16:43:09.028	success: Server is running on port 3000
+04-Apr-2025 16:43:11.264	info: Starting server in development mode...
+04-Apr-2025 16:43:11.277	success: Connected to redis server
+04-Apr-2025 16:43:11.282	success: Prisma connected to database
+04-Apr-2025 16:43:11.284	success: Server is running on port 3000
+04-Apr-2025 16:43:23.505	info: Starting server in development mode...
+04-Apr-2025 16:43:23.521	success: Connected to redis server
+04-Apr-2025 16:43:23.526	success: Prisma connected to database
+04-Apr-2025 16:43:23.528	success: Server is running on port 3000
+04-Apr-2025 16:43:33.333	info: Starting server in development mode...
+04-Apr-2025 16:43:33.348	success: Connected to redis server
+04-Apr-2025 16:43:33.352	success: Prisma connected to database
+04-Apr-2025 16:43:33.355	success: Server is running on port 3000
+04-Apr-2025 16:43:36.809	info: Starting server in development mode...
+04-Apr-2025 16:43:36.825	success: Connected to redis server
+04-Apr-2025 16:43:36.828	success: Prisma connected to database
+04-Apr-2025 16:43:36.830	success: Server is running on port 3000
+04-Apr-2025 16:43:51.499	info: Starting server in development mode...
+04-Apr-2025 16:43:51.516	success: Connected to redis server
+04-Apr-2025 16:43:51.519	success: Prisma connected to database
+04-Apr-2025 16:43:51.522	success: Server is running on port 3000
+04-Apr-2025 16:43:58.941	info: Starting server in development mode...
+04-Apr-2025 16:43:58.964	success: Connected to redis server
+04-Apr-2025 16:43:58.970	success: Prisma connected to database
+04-Apr-2025 16:43:58.972	success: Server is running on port 3000
+04-Apr-2025 16:44:18.169	info: Starting server in development mode...
+04-Apr-2025 16:44:18.183	success: Connected to redis server
+04-Apr-2025 16:44:18.188	success: Prisma connected to database
+04-Apr-2025 16:44:18.190	success: Server is running on port 3000
+04-Apr-2025 16:44:47.765	info: Starting server in development mode...
+04-Apr-2025 16:44:47.782	success: Connected to redis server
+04-Apr-2025 16:44:47.787	success: Prisma connected to database
+04-Apr-2025 16:44:47.790	success: Server is running on port 3000
+04-Apr-2025 16:44:50.363	info: Starting server in development mode...
+04-Apr-2025 16:44:50.378	success: Connected to redis server
+04-Apr-2025 16:44:50.383	success: Prisma connected to database
+04-Apr-2025 16:44:50.386	success: Server is running on port 3000
+04-Apr-2025 16:48:36.494	info: Starting server in development mode...
+04-Apr-2025 16:48:36.508	success: Connected to redis server
+04-Apr-2025 16:48:36.513	success: Prisma connected to database
+04-Apr-2025 16:48:36.515	success: Server is running on port 3000
+04-Apr-2025 16:48:46.403	info: Starting server in development mode...
+04-Apr-2025 16:48:46.416	success: Connected to redis server
+04-Apr-2025 16:48:46.421	success: Prisma connected to database
+04-Apr-2025 16:48:46.423	success: Server is running on port 3000
+04-Apr-2025 16:54:54.751	info: Starting server in development mode...
+04-Apr-2025 16:54:54.767	success: Connected to redis server
+04-Apr-2025 16:54:54.771	success: Prisma connected to database
+04-Apr-2025 16:54:54.773	success: Server is running on port 3000
+04-Apr-2025 16:55:05.944	info: Starting server in development mode...
+04-Apr-2025 16:55:05.957	success: Connected to redis server
+04-Apr-2025 16:55:05.962	success: Prisma connected to database
+04-Apr-2025 16:55:05.964	success: Server is running on port 3000
+04-Apr-2025 16:55:24.542	info: Starting server in development mode...
+04-Apr-2025 16:55:24.556	success: Connected to redis server
+04-Apr-2025 16:55:24.561	success: Prisma connected to database
+04-Apr-2025 16:55:24.563	success: Server is running on port 3000
+04-Apr-2025 16:56:05.356	info: Starting server in development mode...
+04-Apr-2025 16:56:05.371	success: Connected to redis server
+04-Apr-2025 16:56:05.376	success: Prisma connected to database
+04-Apr-2025 16:56:05.378	success: Server is running on port 3000
+04-Apr-2025 17:03:19.794	info: Starting server in development mode...
+04-Apr-2025 17:03:19.808	success: Connected to redis server
+04-Apr-2025 17:03:19.813	success: Prisma connected to database
+04-Apr-2025 17:03:19.815	success: Server is running on port 3000
+04-Apr-2025 17:05:21.932	info: Starting server in development mode...
+04-Apr-2025 17:05:21.946	success: Connected to redis server
+04-Apr-2025 17:05:21.950	success: Prisma connected to database
+04-Apr-2025 17:05:21.952	success: Server is running on port 3000
